@@ -11,3 +11,13 @@ body{
 a{
     text-decoration: none;
 }
+
+/* char color */
+
+.incorrect_char {
+  color: red;
+}
+ 
+.correct_char {
+  color: darkgreen;
+}
