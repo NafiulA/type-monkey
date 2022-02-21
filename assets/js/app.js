@@ -126,57 +126,11 @@ function processCurrentText() {
     }
 }
 
-function updateTimer() {
-    if (timeLeft > 0) {
-        // decrease the current time left
-        timeLeft--;
-
-        // increase the time elapsed
-        timeElapsed++;
-
-        // update the timer text
-        timer_text.textContent = timeLeft + "s";
-    }
-    else {
-        // finish the game
-        finishGame();
-    }
-}
-
-function finishGame() {
-    // stop the timer
-    clearInterval(timer);
-
-    // disable the input area
-    input_area.disabled = true;
-}
-
-function resetValues() {
-    timeLeft = timeLimit;
-    timeElapsed = 0;
-    errors = 0;
-    total_errors = 0;
-    accuracy = 0;
-    characterTyped = 0;
-    quoteNo = 0;
-    input_area.disabled = true;
-
-    input_area.value = "";
-    accuracy_text.textContent = 100;
-    quote_text.innerText = "";
-    timer_text.textContent = timeLeft + 's';
-    error_text.textContent = 0;
-    cpm_text.textContent = 0;
-    wpm_text.textContent = 0;
-}
 start_btn.addEventListener("click", function startGame() {
     const buttonValue = start_btn.innerText;
 
     if (buttonValue == "Start Test") {
         updateQuote();
-        // clear old and start a new timer
-        clearInterval(timer);
-        timer = setInterval(updateTimer, 1000);
         input_area.disabled = false;
         start_btn.innerText = "Reset";
         start_btn.style.background = "green";
@@ -185,6 +139,5 @@ start_btn.addEventListener("click", function startGame() {
         resetValues();
         start_btn.innerText = "Start Test";
         start_btn.style.background = "#7E22CE";
-        clearInterval(timer);
     }
 })
