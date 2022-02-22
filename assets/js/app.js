@@ -151,7 +151,6 @@ function resetValues() {
     total_errors = 0;
     accuracy = 0;
     characterTyped = 0;
-    input_area.disabled = true;
 
     input_area.value = "";
     accuracy_text.textContent = 100;
