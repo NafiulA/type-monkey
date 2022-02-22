@@ -33,7 +33,8 @@ let cpm_text = document.querySelector(".curr_cpm");
 let wpm_text = document.querySelector(".curr_wpm");
 let quote_text = document.querySelector(".quote");
 let input_area = document.querySelector(".input_area");
-let start_btn = document.querySelector("#start-btn");
+let reset_btn = document.querySelector("#reset-btn");
+let button_div = document.querySelector("#button-div");
 let cpm_group = document.querySelector(".cpm");
 let wpm_group = document.querySelector(".wpm");
 let error_group = document.querySelector(".errors");
@@ -49,7 +50,7 @@ let current_quote = "";
 let timer = null;
 
 function updateQuote() {
-    quote_text.innerText = null;
+    quote_text.textContent = null;
     quoteNo = Math.round(Math.random() * quotes_array.length - 1);
     current_quote = quotes_array[quoteNo];
 
@@ -126,18 +127,60 @@ function processCurrentText() {
     }
 }
 
-start_btn.addEventListener("click", function startGame() {
-    const buttonValue = start_btn.innerText;
+function updateTimer() {
+    if (timeLeft > 0) {
+        // decrease the current time left
+        timeLeft--;
 
-    if (buttonValue == "Start Test") {
-        updateQuote();
-        input_area.disabled = false;
-        start_btn.innerText = "Reset";
-        start_btn.style.background = "green";
+        // increase the time elapsed
+        timeElapsed++;
+
+        // update the timer text
+        timer_text.textContent = timeLeft + "s";
     }
     else {
-        resetValues();
-        start_btn.innerText = "Start Test";
-        start_btn.style.background = "#7E22CE";
+        // finish the game
+        // stop the timer
+        clearInterval(timer);
+
+        // disable the input area
+        input_area.disabled = true;
     }
+}
+
+function resetValues() {
+    timeLeft = timeLimit;
+    timeElapsed = 0;
+    errors = 0;
+    total_errors = 0;
+    accuracy = 0;
+    characterTyped = 0;
+    quoteNo = 0;
+    input_area.disabled = true;
+
+    input_area.value = "";
+    accuracy_text.textContent = 100;
+    quote_text.textContent = "";
+    timer_text.textContent = timeLeft + 's';
+    error_text.textContent = 0;
+    cpm_text.textContent = 0;
+    wpm_text.textContent = 0;
+}
+
+//start game when focus input area
+
+input_area.addEventListener("focus", function () {
+    updateQuote();
+
+    // clear old and start a new timer
+    clearInterval(timer);
+    timer = setInterval(updateTimer, 1000);
+    //make reset button appear
+    button_div.classList.remove("hidden");
+})
+
+reset_btn.addEventListener("click", function () {
+    resetValues();
+    clearInterval(timer);
+    button_div.classList.add("hidden");
 })

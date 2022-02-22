@@ -41,9 +41,9 @@
             </div>
             <textarea
                 class="input_area my-5 p-4 w-3/4 text-gray-200 block bg-transparent outline outline-purple-700 rounded-lg resize-none focus:outline-green-600"
-                placeholder="Type here..." oninput="processCurrentText()" disabled></textarea>
+                placeholder="Click here to start the test..." oninput="processCurrentText()"></textarea>
         </div>
-        <div class="grid grid-cols-4 gap-4 justify-items-center items-center my-5">
+        <div class="flex flex-wrap justify-between items-center my-5">
             <div class="errors py-2 px-5 bg-slate-500 text-center rounded-lg">
                 <p class="text-xl text-white">Errors</p>
                 <p class="curr_errors text-2xl text-white">0</p>
@@ -56,8 +56,8 @@
                 <p class="text-xl text-white">CPM</p>
                 <p class="curr_cpm text-2xl text-white">0</p>
             </div>
-            <div>
-                <button id="start-btn" class="py-2 px-4 rounded-lg text-white text-xl bg-purple-700">Start Test</button>
+            <div id="button-div" class="hidden">
+                <button id="reset-btn" class="py-2 px-4 rounded-lg text-white text-xl bg-purple-700">Reset</button>
             </div>
         </div>
 
