@@ -27,32 +27,33 @@
 
         <h2 class="text-white text-5xl my-5 text-center">Test Your Typing Speed</h2>
         <div class="grid grid-cols-2 gap-4 justify-items-center">
-            <div class="timer py-2 px-5 bg-slate-500 text-center rounded-lg">
+            <div class="timer py-2 px-5 bg-green-700 text-center rounded-lg">
                 <p class="text-xl text-white">Time</p>
                 <p class="curr_time text-2xl text-white">60s</p>
             </div>
-            <div class="accuracy py-2 px-4 bg-slate-500 text-center rounded-lg">
+            <div class="accuracy py-2 px-4 bg-green-700 text-center rounded-lg">
                 <p class="text-xl text-white">Accuracy %</p>
                 <p class="curr_accuracy text-2xl text-white">100</p>
             </div>
         </div>
         <div class=" grid grid-cols-1 justify-items-center">
-            <div class="quote my-5 p-4 w-3/4 text-gray-200 bg-transparent outline outline-purple-700 rounded-lg">
+            <div
+                class="quote my-5 p-4 w-3/4 text-white text-xl bg-transparent backdrop-blur outline outline-purple-700 rounded-lg">
             </div>
             <textarea
-                class="input_area my-5 p-4 w-3/4 text-gray-200 block bg-transparent outline outline-purple-700 rounded-lg resize-none focus:outline-green-600"
+                class="input_area my-5 p-4 w-3/4 text-white text-xl block bg-transparent backdrop-blur outline outline-purple-700 rounded-lg resize-none focus:outline-green-600"
                 placeholder="Click here to start the test..." oninput="processCurrentText()"></textarea>
         </div>
         <div class="flex flex-wrap justify-between items-center my-5">
-            <div class="errors py-2 px-5 bg-slate-500 text-center rounded-lg">
+            <div class="errors py-2 px-5 bg-red-500 text-center rounded-lg">
                 <p class="text-xl text-white">Errors</p>
                 <p class="curr_errors text-2xl text-white">0</p>
             </div>
-            <div class="wpm py-2 px-4 bg-slate-500 text-center rounded-lg">
+            <div class="wpm py-2 px-4 bg-green-700 text-center rounded-lg">
                 <p class="text-xl text-white">WPM</p>
                 <p class="curr_wpm text-2xl text-white">0</p>
             </div>
-            <div class="cpm py-2 px-4 bg-slate-500 text-center rounded-lg">
+            <div class="cpm py-2 px-4 bg-green-700 text-center rounded-lg">
                 <p class="text-xl text-white">CPM</p>
                 <p class="curr_cpm text-2xl text-white">0</p>
             </div>

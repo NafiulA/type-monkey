@@ -35,10 +35,6 @@ let quote_text = document.querySelector(".quote");
 let input_area = document.querySelector(".input_area");
 let reset_btn = document.querySelector("#reset-btn");
 let button_div = document.querySelector("#button-div");
-let cpm_group = document.querySelector(".cpm");
-let wpm_group = document.querySelector(".wpm");
-let error_group = document.querySelector(".errors");
-let accuracy_group = document.querySelector(".accuracy");
 
 let timeLeft = timeLimit;
 let timeElapsed = 0;
@@ -51,7 +47,7 @@ let timer = null;
 
 function updateQuote() {
     quote_text.textContent = null;
-    quoteNo = Math.round(Math.random() * quotes_array.length - 1);
+    let quoteNo = Math.round(Math.random() * quotes_array.length - 1);
     current_quote = quotes_array[quoteNo];
 
     // separate each character and make an element
@@ -155,7 +151,6 @@ function resetValues() {
     total_errors = 0;
     accuracy = 0;
     characterTyped = 0;
-    quoteNo = 0;
     input_area.disabled = true;
 
     input_area.value = "";
