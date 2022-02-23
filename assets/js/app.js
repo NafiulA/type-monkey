@@ -153,6 +153,7 @@ function resetValues() {
     characterTyped = 0;
 
     input_area.value = "";
+    input_area.disabled = false;
     accuracy_text.textContent = 100;
     quote_text.textContent = "";
     timer_text.textContent = timeLeft + 's';
